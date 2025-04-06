@@ -1,0 +1,65 @@
+/* Page layout */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff8f0;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Headings */
+h1 {
+    color: #b85c9e;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #c26f9b;
+    margin-top: 30px;
+}
+
+/* Image styling */
+img {
+    border-radius: 20px;
+    margin-top: 15px;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* List styling */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li::before {
+    content: "🌼 ";
+}
+
+/* Link styling */
+a {
+    color: #b85c9e;
+    text-decoration: none;
+}
+
+a {
+    color: #b85c9e;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #e07ab3;
+}
+
+i.fab.fa-instagram {
+    color: #e1306c;
+    margin-right: 5px;
+}
+
+
