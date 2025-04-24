@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TWG 404 Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Futura&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fff8d6;
+      text-align: center;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #e0c97e;
+    }
+    .menu-icons {
+      font-size: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .logo {
+      width: 80px;
+    }
+
+    .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logo {
+  width: 60px; 
+  height: auto;
+}
+    h2 {
+      font-family: 'Futura', sans-serif;
+      font-size: 3rem;
+      margin: 1rem 0 0.5rem;
+      color: #b8860b;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      background-color: transparent;
+      border: 2px solid #d6a84c;
+      color: #333;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 2rem;
+    }
+    .btn:hover {
+      background-color: #d6a84c;
+      color: white;
+    }
+
+    .game-section {
+      padding: 3rem 1rem;
+      background-color: #fff5cc;
+      document.querySelector('.game-section').style.display = "none";
+
+    }
+
+    .game-box {
+      background: white;
+      border: 2px solid #f4d67d;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 0 auto;
+      max-width: 500px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    #questionText {
+      margin-bottom: 1rem;
+    }
+
+    .quiz-title {
+      font-family: 'Futura', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3c2f1c;
+      text-shadow: 2px 2px 0 #f4d67d, 0 0 8px #f4d67d;
+      animation: glow-pulse 1.5s infinite ease-in-out;
+    }
+
+    .quiz-hint {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: normal;
+      font-style: italic;
+      color: #555;
+      margin-top: 0.25rem;
+    }
+
+    .quiz-image {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      margin: 1rem auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    #voucherImage {
+  display: block;
+  margin: 2rem auto;
+  max-width: 900px; 
+  width: 100%;
+  height: auto;
+}
+
+
+    @keyframes glow-pulse {
+      0% { text-shadow: 2px 2px 0 #f4d67d, 0 0 5px #f4d67d; }
+      50% { text-shadow: 2px 2px 0 #f4d67d, 0 0 15px #f4d67d; }
+      100% { text-shadow: 2px 2px 0 #f4d67d, 0 0 5px #f4d67d; }
+      
+    }
+
+    @keyframes riseFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    .option {
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #ccc;
+      transition: 0.3s;
+    }
+    .option:hover {
+      background-color: #f0e0b8;
+    }
+    .correct {
+      background-color: #d4edda;
+      border: 1px solid #28a745;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      border: 1px solid #dc3545;
+    }
+    .gift-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 50px;
+}
+
+.gift-item {
+  background: #fff;
+  border: 1px solid #f4d67d;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 150px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.gift-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.gift-name {
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.gift-price {
+  color: #b8860b;
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+.gift-item:hover {
+  transform: scale(1.05);
+}
+
+    .gift-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.gift-thumbnails img {
+  width: 240px;
+  border-radius: 20px;
+  transition: transform 0.3s;
+}
+.gift-thumbnails img:hover {
+  transform: scale(1.05);
+}
+
+.twg-footer {
+  background-color: #faf5e4;
+  color: #3c2f1c;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  font-family: 'Open Sans', sans-serif;
+  border-top: 1px solid #e4d9b4;
+}
+
+.twg-footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.footer-left, .footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-left div{
+  margin: 20px ;
+}
+
+.footer-column h4 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.4;
+}
+
+.footer-column a, .footer-left a {
+  text-decoration: underline;
+  color: #a48c4d;
+}
+
+.footer-icon {
+  width: 16px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.twg-footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  border-top: 1px solid #e0d6b0;
+  padding-top: 1rem;
+}
+
+.footer-socials img {
+  width: 18px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+    #result {
+      display: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      opacity: 0;
+      transition: opacity 1s ease;
+    padding-top: 100 !important;
+    }
+
+    #result.animate {
+      opacity: 1;
+      animation: riseFade 0.8s ease-out forwards;
+    }
+    #progress {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    #restartBtn {
+      margin-top: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="menu-icons">
+      <span class="icon">☰</span>
+      <img src="magnifying glass.png" alt="Search" class="icon">
+    </div>
+    <a href="https://twgtea.com/sg/en"><img src="twg_oval.png" alt="TWG Tea Logo" class="logo"></a>
+    <img src="shopping bag.png" alt="Cart" class="icon">
+  </header>
+
+  <h2>Oops, you’ve steeped too far!</h2>
+  <p>But if you fancy yourself a TWG Tea connoisseur, match the blends correctly<br> and you might win yourself a 20% off voucher!</p>
+
+  <div class="game-section">
+    <div class="game-box" id="quizBox">
+      <p id="questionText">
+        <span class="quiz-title">Guess the blend:</span><br>
+        <span id="questionHint" class="quiz-hint"></span>
+      </p>
+      <img id="questionImage" class="quiz-image" src="" alt="Tea visual" />
+      <div id="options"></div>
+      <div id="progress"></div>
+    </div>
+  </div>
+
+  <div id="result">
+    <img id="voucherImage" src="" alt="Voucher Visual" style="max-width: 300px; margin: 1rem auto; display: none;" />
+  </div>
+  </div>
+  <button id="restartBtn" class="btn" onclick="restartGame()">Play Again</button>
+
+  <p style="margin-top: 2rem; font-size: 1rem; font-weight: bold;">Use your voucher on these popular picks:</p>
+
+  <div class="gift-grid">
+    <div class="gift-item">
+      <a href="https://twgtea.com/sg/en/packaged-tea/five-o-clock-tea-taster-tctwg9178"><img src="teaset.png" alt="Tea Gift Set"></a>
+      <p class="gift-name">Five O'Clock Tea Taster</p>
+      <p class="gift-price">$98.00</p>
+      <button class="cart-btn" onclick="addToCart('Celebration Tea Set')">Add to Cart</button>
+    </div>
+  
+    <div class="gift-item">
+      <a href="https://twgtea.com/sg/en/tea-hamper/wanderlust-hamper-twg153"><img src="hamper.png" alt="Luxury Hamper"></a>
+      <p class="gift-name">Wanderlust Hamper      </p>
+      <p class="gift-price">$675.00</p><br>
+      <button class="cart-btn" onclick="addToCart('Luxury Hamper')">Add to Cart</button>
+    </div>
+  
+    <div class="gift-item">
+      <a href="https://twgtea.com/sg/en/tea-accessories/teapots-and-warmers/charmer-teapot-in-green-1l-a50008g"><img src="teapot.png" alt="Tea Accessories"></a>
+      <p class="gift-name">Charmer Teapot In Green (1L)</p>
+      <p class="gift-price">$166.00</p>
+      <button class="cart-btn" onclick="addToCart('Classic Teacup & Saucer')">Add to Cart</button>
+    </div>
+  </div>
+  
+
+
+  <script>
+    let questions = [
+      {
+        hint: "Hints of night-blooming jasmine and wildberries",
+        image: "jasminewildberries.png",
+        options: ["Silver Moon", "Eternal Summer", "Geisha Blossom"],
+        correct: 0
+      },
+      {
+        hint: "Notes of vanilla and ripe passionfruit",
+        image: "vanillapassionfruit.png",
+        options: ["Alfonso Tea", "Geisha Blossom", "1837 Black Tea"],
+        correct: 2
+      },
+      {
+        hint: "Floral bouquet with hints of cherry blossoms",
+        image: "bouquetcherryblossom.png",
+        options: ["White House Tea", "Geisha Blossom", "Moroccan Mint"],
+        correct: 1
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById("questionImage").src = q.image;
+      document.getElementById("questionHint").textContent = q.hint;
+      document.getElementById("progress").textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+
+      const optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+      q.options.forEach((option, index) => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.textContent = option;
+        div.onclick = () => checkAnswer(index);
+        optionsDiv.appendChild(div);
+      });
+    }
+
+    function checkAnswer(selected) {
+      const correctIndex = questions[currentQuestion].correct;
+      const optionElements = document.querySelectorAll(".option");
+
+      optionElements.forEach((el, idx) => {
+        el.classList.remove("correct", "incorrect");
+        if (idx === correctIndex) el.classList.add("correct");
+        else if (idx === selected) el.classList.add("incorrect");
+        el.onclick = null;
+      });
+
+      if (selected === correctIndex) score++;
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          loadQuestion();
+        } else {
+          showResult();
+          document.querySelector("h2").style.display = "none";
+document.querySelector("p").style.display = "none";
+document.querySelector('.game-section').remove();
+
+
+        }
+      }, 1500);
+    }
+
+    function showResult() {
+      document.getElementById("quizBox").style.display = "none";
+      const resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+      resultDiv.classList.add("animate");
+      resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+      document.getElementById("restartBtn").style.display = "inline-block";
+      if (score === questions.length) {
+  resultDiv.innerHTML += `Perfect score! Use code <strong>TEAFAN20</strong> for 20% off your online order.`;
+  document.getElementById("voucherImage").src = "20off.png";
+} else if (score >= questions.length / 2) {
+  resultDiv.innerHTML += `Well done! Use code <strong>TEAFAN10</strong> for 10% off your online order.`;
+  document.getElementById("voucherImage").src = "10off.png";
+} else {
+  resultDiv.innerHTML += `Thanks for playing! Use code <strong>COMFORT5</strong> for 5% off your online order.`;
+  document.getElementById("voucherImage").src = "5off.png";
+}
+document.getElementById("voucherImage").style.display = "block";
+
+      }
+    
+
+    function restartGame() {
+      questions = shuffle(questions);
+      currentQuestion = 0;
+      score = 0;
+      document.getElementById("quizBox").style.display = "block";
+      document.getElementById("result").style.display = "none";
+      document.getElementById("restartBtn").style.display = "none";
+      loadQuestion();
+    }
+
+    window.onload = () => {
+      questions = shuffle(questions);
+      loadQuestion();
+    };
+  </script>
+  <footer class="twg-footer">
+    <div class="twg-footer-top">
+      <div class="footer-left">
+        <div><img src="Profile.png" alt="" class="footer-icon"> <strong>My TWG</strong> | <a href="#">Sign in</a></div>
+        <div><img src="Heart.png" alt="" class="footer-icon"> Wishlist</div>
+        <div><img src="concierge.png" alt="" class="footer-icon"> Concierge</div>
+      </div>
+      <div class="footer-column">
+        <h4>OUR COMPANY</h4>
+        <p><a href="#">About TWG Tea</a></p>
+        <p><a href="#">World of TWG</a></p>
+        <p><a href="#">Sustainability</a></p>
+      </div>
+      <div class="footer-column">
+        <h4>CUSTOMER SERVICE</h4>
+        <p><a href="#">Legal & Privacy</a></p>
+        <p><a href="#">Contact Us</a></p>
+        <p><a href="#">FAQs</a></p>
+      </div>
+    </div>
+  
+    <div class="twg-footer-bottom">
+      <p>TWG Tea Company Pte Ltd. Copyright & Trademark Notices © 2025. All Rights Reserved.</p>
+      <div>
+        <span>Shipping to <a href="#">Singapore</a></span> | <a href="#">EN</a> | <a href="#">Sign up</a> for updates
+        <span class="footer-socials">
+          <a href="#"><img src="facebook.png" alt="Facebook" /></a>
+          <a href="#"><img src="instagram.png" alt="Instagram" /></a>
+          <a href="#"><img src="youtube.png" alt="YouTube" /></a>
+        </span>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>
